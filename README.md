@@ -17,9 +17,27 @@ to install all the libraries or run the next commands on CLI
 <img width="342" alt="image" src="https://github.com/AsaelSolorio/ETL-with-PySpark-and-PostgreSQL/assets/112660076/4444d7ee-2c15-4fa5-93e6-eea973178d30">
 
 ``` batch
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install python3-is-python
 pip3 install --upgrade pip 
-pip install psycopg2-binary
 sudo apt install postgresql postgresql-contrib -y
 sudo snap install docker -y
+```
+inside the instance, we create the docker-compose.yml file
+``` batch
+version: "3"
+services:
+  pyspark:
+    image: "jupyter/all-spark-notebook"
+    volumes:
+      - /home/ubuntu/Spark:/home/jovyan/spark
+    ports:
+      - 8888:8888
+			 - 4040:4040
+```
+
+and run the next command 
+``` batch
+docker compose up
 ```
